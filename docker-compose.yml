@@ -1,0 +1,20 @@
+services:
+
+  app:
+    image: diegomrs/estudiantes-n2:latest
+
+    deploy:
+      replicas: 2
+
+    ports:
+      - "5020:5000"
+
+    environment:
+      DATABASE_URL: postgresql://diego:1808@postgres_db:5432/mi_base
+
+    networks:
+      - estudiantes-net
+
+networks:
+  estudiantes-net:
+    external: true
